@@ -31,7 +31,7 @@ app.post(
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://learnify-frontend-six.vercel.app/",
     methods: ["POST", "GET", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true,
   })
