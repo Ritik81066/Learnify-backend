@@ -24,7 +24,7 @@ app.set("trust proxy", 1);
 const PORT = process.env.PORT || 5000;
 
 app.post(
-  "/api/payment/webhook",
+  "payment/webhook",
   express.raw({ type: "application/json" }),
   handleStripeWebhook
 );
@@ -42,16 +42,16 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(globalRateLimiter);
 
-app.use("/api/auth", authRoutes);
-app.use("/api/user", userRoutes);
-app.use("/api/course", courseRoutes);
-app.use("/api/lecture", lectureRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/review", reviewRoute);
-app.use("/api/payment", paymentRoutes);
-app.use("/api/dashboard", dashboardRoutes);
-app.use("/api/currency", currencyRoutes);
-app.use("/api/contact", contactRoutes);
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
+app.use("/course", courseRoutes);
+app.use("/lecture", lectureRoutes);
+app.use("/cart", cartRoutes);
+app.use("/review", reviewRoute);
+app.use("/payment", paymentRoutes);
+app.use("/dashboard", dashboardRoutes);
+app.use("/currency", currencyRoutes);
+app.use("/contact", contactRoutes);
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
